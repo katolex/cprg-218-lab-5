@@ -3,7 +3,7 @@ const apiUrl = 'https://restcountries.com/v3.1/all'; // API URL for fetching cou
 fetch(apiUrl)
   .then(res => res.json())
   .then(data => {
-    // Sort the data array alphabetically by country name
+    // Sort the data alphabetically by country name
     data.sort((a, b) => {
       const countryA = a.name.common.toLowerCase();
       const countryB = b.name.common.toLowerCase();
@@ -19,7 +19,7 @@ fetch(apiUrl)
       const optionElement = document.createElement('option'); // Create an option element
       optionElement.value = country.name.common; // Set the value of the option to the country name
       optionElement.textContent = country.name.common; // Set the text content of the option to the country name
-      selectElement.appendChild(optionElement); // Append the option to the select element
+      selectElement.appendChild(optionElement);
     });
 
     // Add event listener for change event on the select element
@@ -31,7 +31,6 @@ fetch(apiUrl)
         const flagUrl = selectedCountry.flags.png; // Get the flag image URL
         const capital = selectedCountry.capital; // Get the capital of the selected country
 
-        // Create a custom modal
         const modal = document.createElement('div');
         modal.classList.add('modal');
         modal.innerHTML = `
@@ -43,10 +42,9 @@ fetch(apiUrl)
           </div>
         `;
 
-        // Append the modal to the document body
         document.body.appendChild(modal);
 
-        // Close modal when close button is clicked
+        // Close the countries when 'X'' button is clicked
         modal.querySelector('.close').addEventListener('click', function() {
           modal.remove();
         });
